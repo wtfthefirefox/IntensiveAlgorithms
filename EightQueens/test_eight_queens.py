@@ -1,15 +1,17 @@
 from eight_queens import eight_queens
 
 
-def attack(i, j, board):
-    for k in range(8):
-        if board[i][k] == 1 or board[k][j] == 1:
+def attacks(i, j, positions):
+    for x, y in positions:
+        if i == x and j == y:
+            continue
+
+        if i == x or j == y:
             return True
-    for k in range(8):
-        for l in range(8):
-            if (k + l == i + j) or (k - l == i - j):
-                if board[k][l] == 1:
-                    return True
+
+        if (x + y == i + j) or (x - y == i - j):
+            return True
+
     return False
 
 
@@ -25,4 +27,4 @@ def test_eight_queens():
     assert len(queens) == 8
 
     for i, j in queens:
-        assert not attack(i, j, result), "Queens attack each other"
+        assert not attacks(i, j, result), "Queens attack each other"
