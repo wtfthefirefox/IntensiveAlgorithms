@@ -13,5 +13,5 @@ struct ListNode {
 
 class Solution {
 public:
-  ListNode *insertionSortList(ListNode *head) {}
+    ListNode* insertionSortList(ListNode* head) {}
 };
