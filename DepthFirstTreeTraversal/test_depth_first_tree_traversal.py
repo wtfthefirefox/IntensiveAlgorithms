@@ -14,6 +14,7 @@ def test_depth_first_tree_traversal():
         9: [None, None],
     }
 
-    result = [3, 5, 4, 2, 9, 7, 1]
-
-    assert depth_first_tree_traversal(tree) == result
+    assert depth_first_tree_traversal(1, tree) == [3, 5, 4, 2, 9, 7, 1]
+    assert depth_first_tree_traversal(4, tree) == [5, 4]
+    assert depth_first_tree_traversal(3, tree) == [3]
+    assert depth_first_tree_traversal(7, tree) == [9, 7]
